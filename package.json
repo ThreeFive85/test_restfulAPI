@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.12"
+  },
+  "name": "test_restfulapi",
+  "description": "mysql 또는 외부 json 파일을 사용하여 server api 작성해보기",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThreeFive85/test_restfulAPI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThreeFive85/test_restfulAPI/issues"
+  },
+  "homepage": "https://github.com/ThreeFive85/test_restfulAPI#readme"
+}
