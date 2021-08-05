@@ -1,6 +1,7 @@
 import express from 'express';
 
 import usersRouter from './jsonapi/routes/users.js';
+import postsRouter from './jsonapi/routes/posts.js';
 
 const app = express();
 
@@ -12,5 +13,6 @@ const port = 3300;
 app.get('/', (req, res) => { res.json({success: true}) })
 
 app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
 
 app.listen(port, () => console.log(`server running on port: ${port}`));
