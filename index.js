@@ -3,6 +3,7 @@ import express from 'express';
 import usersRouter from './jsonapi/routes/users.js';
 import postsRouter from './jsonapi/routes/posts.js';
 import todosRouter from './jsonapi/routes/todos.js';
+import commentsRouter from './jsonapi/routes/comments.js';
 
 const app = express();
 
@@ -16,5 +17,6 @@ app.get('/', (req, res) => { res.json({success: true}) })
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/todos', todosRouter);
+app.use('/comments', commentsRouter);
 
 app.listen(port, () => console.log(`server running on port: ${port}`));
