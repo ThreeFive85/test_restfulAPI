@@ -27,3 +27,16 @@ export const getUsers = async(req, res) => {
         console.log(error.message);
     }
 }
+
+// user
+export const getUser = async(req, res) => {
+    const { id } = req.params;
+    const getData = await axios.get(url+`/${id}`);
+    const user = getData.data;
+    try {
+        if(!user) res.status(400).json({success: false, data: '해당 유저가 존재하지 않습니다.'})
+        res.status(200).json({success: true, data: user});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
