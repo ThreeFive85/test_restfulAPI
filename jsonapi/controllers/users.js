@@ -40,3 +40,34 @@ export const getUser = async(req, res) => {
         console.log(error.message);
     }
 }
+
+// getUsersTotalPosts response
+// [
+//     {
+//         "name": "user1",
+//         "totalPosts": 10
+//     }
+// ]
+export const getUsersTotalPosts = async(req, res) => {
+    const getUsersData = await axios.get(url);
+    const users = getUsersData.data;
+    const getPostsData = await axios.get('https://koreanjson.com/posts');
+    const posts = getPostsData.data;
+    let result = [];
+    // console.log(users)
+
+    try {
+        users.forEach(user => {
+            const postCnt = posts.filter(post => post.UserId === user.id).length;
+            // console.log(postCnt)
+            let data = {
+                name: user.name,
+                totalPosts: postCnt
+            };
+            result.push(data);
+        })
+        res.status(200).json({success: true, data: result});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
